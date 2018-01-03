@@ -1,6 +1,6 @@
 Package: tidytree
 Title: A Tidy Tool for Phylogenetic Tree Data Manipulation
-Version: 0.1.5
+Version: 0.1.6
 Authors@R: c(
            person("Guangchuang", "Yu",   email = "guangchuangyu@gmail.com", role = c("aut", "cre", "cph"), comment = c(ORCID = "0000-0002-6485-8781")),
            person("Bradley", "Jones",    email = "brj1@sfu.ca",             role = "ctb"),
@@ -19,10 +19,10 @@ Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1
 NeedsCompilation: no
-Packaged: 2017-12-14 13:42:55 UTC; guangchuangyu
+Packaged: 2018-01-03 02:57:08 UTC; guangchuangyu
 Author: Guangchuang Yu [aut, cre, cph] (0000-0002-6485-8781),
   Bradley Jones [ctb],
   Zebulun Arendsee [ctb]
 Maintainer: Guangchuang Yu <guangchuangyu@gmail.com>
 Repository: CRAN
-Date/Publication: 2017-12-14 16:23:00 UTC
+Date/Publication: 2018-01-03 09:40:41 UTC

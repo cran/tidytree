@@ -20,10 +20,10 @@ as_data_frame.phylo <- function(x, ...) {
     if ( !is.null(phylo$node.label) ) {
         label[(ntip+1):N] <- phylo$node.label
     }
-    isTip <- rep(FALSE, N)
-    isTip[1:ntip] <- TRUE
+    ## isTip <- rep(FALSE, N)
+    ## isTip[1:ntip] <- TRUE
 
-    label.df <- data_frame(node=1:N, label=label, isTip = isTip)
+    label.df <- data_frame(node=1:N, label=label) #, isTip = isTip)
     res <- full_join(res, label.df, by='node')
 
     idx <- is.na(res$parent)
@@ -83,6 +83,9 @@ get_tree_data <- function(tree_object) {
     if (nrow(extraInfo) == 0) {
         return(tree_anno)
     }
+
+    tree_anno$node <- as.integer(tree_anno$node)
+    extraInfo$node <- as.integer(extraInfo$node)
     full_join(tree_anno, extraInfo, by = "node")
 }
 
