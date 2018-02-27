@@ -12,7 +12,7 @@
 
 <meta name="author" content="Guangchuang Yu School of Public Health, The University of Hong Kong" />
 
-<meta name="date" content="2018-01-03" />
+<meta name="date" content="2018-02-26" />
 
 <title>tidytree: A Tidy Tool for Phylogenetic Tree Data Manipulation</title>
 
@@ -72,7 +72,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h1 class="title toc-ignore project-name">tidytree: A Tidy Tool for Phylogenetic Tree Data Manipulation</h1>
 <h4 class="author project-author">Guangchuang Yu<br />
 School of Public Health, The University of Hong Kong</h4>
-<h4 class="date project-date">2018-01-03</h4>
+<h4 class="date project-date">2018-02-26</h4>
 </section>
 
 
@@ -113,13 +113,13 @@ x</code></pre></div>
 <pre><code>## # A tibble: 7 x 4
 ##   parent  node branch.length label
 ##    &lt;int&gt; &lt;int&gt;         &lt;dbl&gt; &lt;chr&gt;
-## 1      7     1   0.472166386    t2
-## 2      7     2   0.273833123    t1
-## 3      6     3   0.674331481    t4
-## 4      5     4   0.002020766    t3
-## 5      5     5            NA  &lt;NA&gt;
-## 6      5     6   0.039322336  &lt;NA&gt;
-## 7      6     7   0.434905600  &lt;NA&gt;</code></pre>
+## 1      7     1       0.472   t2   
+## 2      7     2       0.274   t1   
+## 3      6     3       0.674   t4   
+## 4      5     4       0.00202 t3   
+## 5      5     5      NA       &lt;NA&gt; 
+## 6      5     6       0.0393  &lt;NA&gt; 
+## 7      6     7       0.435   &lt;NA&gt;</code></pre>
 <p>The <code>tbl_tree</code> object can be converted back to a <code>phylo</code> object.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.phylo</span>(x)</code></pre></div>
 <pre><code>## 
@@ -141,7 +141,7 @@ y &lt;-<span class="st"> </span><span class="kw">full_join</span>(x, d, <span cl
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.treedata</span>(y)</code></pre></div>
 <pre><code>## 'treedata' S4 object'.
 ## 
-## ...@ tree: 
+## ...@ phylo: 
 ## Phylogenetic tree with 4 tips and 3 internal nodes.
 ## 
 ## Tip labels:
@@ -155,15 +155,15 @@ y &lt;-<span class="st"> </span><span class="kw">full_join</span>(x, d, <span cl
 <p>The tidytree package also provides <code>as_data_frame</code> to convert <code>treedata</code> object to a tidy data frame. The phylogentic tree structure and the evolutionary inferences were stored in the tbl_tree object, making it consistent and easier for manipulating evolutionary statistics inferred by different software as well as linking external data to the same tree structure.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y <span class="op">%&gt;%</span><span class="st"> </span>as.treedata <span class="op">%&gt;%</span><span class="st"> </span>as_data_frame</code></pre></div>
 <pre><code>## # A tibble: 7 x 5
-##   parent  node branch.length label        trait
-##    &lt;int&gt; &lt;int&gt;         &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;
-## 1      7     1   0.472166386    t2 -0.001524259
-## 2      7     2   0.273833123    t1 -1.958366456
-## 3      6     3   0.674331481    t4  1.563222619
-## 4      5     4   0.002020766    t3 -0.265336001
-## 5      5     5            NA  &lt;NA&gt;           NA
-## 6      5     6   0.039322336  &lt;NA&gt;           NA
-## 7      6     7   0.434905600  &lt;NA&gt;           NA</code></pre>
+##   parent  node branch.length label     trait
+##    &lt;int&gt; &lt;int&gt;         &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;
+## 1      7     1       0.472   t2    - 0.00152
+## 2      7     2       0.274   t1    - 1.96   
+## 3      6     3       0.674   t4      1.56   
+## 4      5     4       0.00202 t3    - 0.265  
+## 5      5     5      NA       &lt;NA&gt;   NA      
+## 6      5     6       0.0393  &lt;NA&gt;   NA      
+## 7      6     7       0.435   &lt;NA&gt;   NA</code></pre>
 </div>
 </div>
 <div id="access-related-nodes" class="section level1">
@@ -172,42 +172,42 @@ y &lt;-<span class="st"> </span><span class="kw">full_join</span>(x, d, <span cl
 <p>These verbs accept a <code>tbl_tree</code> and a selected node which can be node number or label.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">child</span>(y, <span class="dv">5</span>)</code></pre></div>
 <pre><code>## # A tibble: 2 x 5
-##   parent  node branch.length label     trait
-##    &lt;int&gt; &lt;int&gt;         &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;
-## 1      5     4   0.002020766    t3 -0.265336
-## 2      5     6   0.039322336  &lt;NA&gt;        NA</code></pre>
+##   parent  node branch.length label   trait
+##    &lt;int&gt; &lt;int&gt;         &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt;
+## 1      5     4       0.00202 t3    - 0.265
+## 2      5     6       0.0393  &lt;NA&gt;   NA</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">parent</span>(y, <span class="dv">2</span>)</code></pre></div>
 <pre><code>## # A tibble: 1 x 5
 ##   parent  node branch.length label trait
 ##    &lt;int&gt; &lt;int&gt;         &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;
-## 1      6     7     0.4349056  &lt;NA&gt;    NA</code></pre>
+## 1      6     7         0.435 &lt;NA&gt;     NA</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">offspring</span>(y, <span class="dv">5</span>)</code></pre></div>
 <pre><code>## # A tibble: 6 x 5
-##   parent  node branch.length label        trait
-##    &lt;int&gt; &lt;int&gt;         &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;
-## 1      7     1   0.472166386    t2 -0.001524259
-## 2      7     2   0.273833123    t1 -1.958366456
-## 3      6     3   0.674331481    t4  1.563222619
-## 4      5     4   0.002020766    t3 -0.265336001
-## 5      5     6   0.039322336  &lt;NA&gt;           NA
-## 6      6     7   0.434905600  &lt;NA&gt;           NA</code></pre>
+##   parent  node branch.length label     trait
+##    &lt;int&gt; &lt;int&gt;         &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;
+## 1      7     1       0.472   t2    - 0.00152
+## 2      7     2       0.274   t1    - 1.96   
+## 3      6     3       0.674   t4      1.56   
+## 4      5     4       0.00202 t3    - 0.265  
+## 5      5     6       0.0393  &lt;NA&gt;   NA      
+## 6      6     7       0.435   &lt;NA&gt;   NA</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ancestor</span>(y, <span class="dv">2</span>)</code></pre></div>
 <pre><code>## # A tibble: 3 x 5
 ##   parent  node branch.length label trait
 ##    &lt;int&gt; &lt;int&gt;         &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;
-## 1      5     5            NA  &lt;NA&gt;    NA
-## 2      5     6    0.03932234  &lt;NA&gt;    NA
-## 3      6     7    0.43490560  &lt;NA&gt;    NA</code></pre>
+## 1      5     5       NA      &lt;NA&gt;     NA
+## 2      5     6        0.0393 &lt;NA&gt;     NA
+## 3      6     7        0.435  &lt;NA&gt;     NA</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sibling</span>(y, <span class="dv">2</span>)</code></pre></div>
 <pre><code>## # A tibble: 1 x 5
-##   parent  node branch.length label        trait
-##    &lt;int&gt; &lt;int&gt;         &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;
-## 1      7     1     0.4721664    t2 -0.001524259</code></pre>
+##   parent  node branch.length label    trait
+##    &lt;int&gt; &lt;int&gt;         &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;
+## 1      7     1         0.472 t2    -0.00152</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">MRCA</span>(y, <span class="dv">2</span>, <span class="dv">3</span>)</code></pre></div>
 <pre><code>## # A tibble: 1 x 5
 ##   parent  node branch.length label trait
 ##    &lt;int&gt; &lt;int&gt;         &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;
-## 1      5     6    0.03932234  &lt;NA&gt;    NA</code></pre>
+## 1      5     6        0.0393 &lt;NA&gt;     NA</code></pre>
 </div>
 <div id="grouping-taxa" class="section level1">
 <h1>Grouping taxa</h1>
@@ -220,18 +220,18 @@ tree &lt;-<span class="st"> </span><span class="kw">read.tree</span>(<span class
 
 <span class="kw">groupClade</span>(<span class="kw">as_data_frame</span>(tree), <span class="kw">c</span>(<span class="dv">17</span>, <span class="dv">21</span>))</code></pre></div>
 <pre><code>## # A tibble: 25 x 5
-##    parent  node branch.length label  group
-##     &lt;int&gt; &lt;int&gt;         &lt;dbl&gt; &lt;chr&gt; &lt;fctr&gt;
-##  1     20     1             4     A      1
-##  2     20     2             4     B      1
-##  3     19     3             5     C      1
-##  4     18     4             6     D      1
-##  5     17     5            21     E      1
-##  6     22     6             4     F      2
-##  7     22     7            12     G      2
-##  8     21     8             8     H      2
-##  9     24     9             5     I      0
-## 10     24    10             2     J      0
+##    parent  node branch.length label group
+##     &lt;int&gt; &lt;int&gt;         &lt;dbl&gt; &lt;chr&gt; &lt;fct&gt;
+##  1     20     1          4.00 A     1    
+##  2     20     2          4.00 B     1    
+##  3     19     3          5.00 C     1    
+##  4     18     4          6.00 D     1    
+##  5     17     5         21.0  E     1    
+##  6     22     6          4.00 F     2    
+##  7     22     7         12.0  G     2    
+##  8     21     8          8.00 H     2    
+##  9     24     9          5.00 I     0    
+## 10     24    10          2.00 J     0    
 ## # ... with 15 more rows</code></pre>
 </div>
 <div id="groupotu" class="section level2">
@@ -240,14 +240,14 @@ tree &lt;-<span class="st"> </span><span class="kw">read.tree</span>(<span class
 <span class="kw">groupOTU</span>(x, <span class="kw">c</span>(<span class="st">'t1'</span>, <span class="st">'t4'</span>), <span class="dt">group_name =</span> <span class="st">&quot;fake_group&quot;</span>)</code></pre></div>
 <pre><code>## # A tibble: 7 x 5
 ##   parent  node branch.length label fake_group
-##    &lt;int&gt; &lt;int&gt;         &lt;dbl&gt; &lt;chr&gt;     &lt;fctr&gt;
-## 1      7     1   0.472166386    t2          0
-## 2      7     2   0.273833123    t1          1
-## 3      6     3   0.674331481    t4          1
-## 4      5     4   0.002020766    t3          0
-## 5      5     5            NA  &lt;NA&gt;          0
-## 6      5     6   0.039322336  &lt;NA&gt;          1
-## 7      6     7   0.434905600  &lt;NA&gt;          1</code></pre>
+##    &lt;int&gt; &lt;int&gt;         &lt;dbl&gt; &lt;chr&gt; &lt;fct&gt;     
+## 1      7     1       0.472   t2    0         
+## 2      7     2       0.274   t1    1         
+## 3      6     3       0.674   t4    1         
+## 4      5     4       0.00202 t3    0         
+## 5      5     5      NA       &lt;NA&gt;  0         
+## 6      5     6       0.0393  &lt;NA&gt;  1         
+## 7      6     7       0.435   &lt;NA&gt;  1</code></pre>
 <p>The <code>groupOTU</code> will trace back from input nodes to most recent common ancestor. In this example, nodes 2, 3, 7 and 6 (<code>2 (t1) -&gt; 7 -&gt; 6</code> and <code>3 (t4) -&gt; 6</code>) are grouping together.</p>
 <p>Related OTUs are grouping together and they are not necessarily within a clade. They can be monophyletic (clade), polyphyletic or paraphyletic.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cls &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">c1=</span><span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;D&quot;</span>, <span class="st">&quot;E&quot;</span>),
@@ -257,18 +257,18 @@ tree &lt;-<span class="st"> </span><span class="kw">read.tree</span>(<span class
 
 <span class="kw">as_data_frame</span>(tree) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">groupOTU</span>(cls)</code></pre></div>
 <pre><code>## # A tibble: 25 x 5
-##    parent  node branch.length label  group
-##     &lt;int&gt; &lt;int&gt;         &lt;dbl&gt; &lt;chr&gt; &lt;fctr&gt;
-##  1     20     1             4     A     c1
-##  2     20     2             4     B     c1
-##  3     19     3             5     C     c1
-##  4     18     4             6     D     c1
-##  5     17     5            21     E     c1
-##  6     22     6             4     F     c2
-##  7     22     7            12     G     c2
-##  8     21     8             8     H     c2
-##  9     24     9             5     I     c3
-## 10     24    10             2     J     c3
+##    parent  node branch.length label group
+##     &lt;int&gt; &lt;int&gt;         &lt;dbl&gt; &lt;chr&gt; &lt;fct&gt;
+##  1     20     1          4.00 A     c1   
+##  2     20     2          4.00 B     c1   
+##  3     19     3          5.00 C     c1   
+##  4     18     4          6.00 D     c1   
+##  5     17     5         21.0  E     c1   
+##  6     22     6          4.00 F     c2   
+##  7     22     7         12.0  G     c2   
+##  8     21     8          8.00 H     c2   
+##  9     24     9          5.00 I     c3   
+## 10     24    10          2.00 J     c3   
 ## # ... with 15 more rows</code></pre>
 <p>If there are conflicts when tracing back to mrca, user can set <code>overlap</code> parameter to “origin” (the first one counts), “overwrite” (default, the last one counts) or “abandon” (un-selected for grouping), see also <a href="https://groups.google.com/d/msgid/bioc-ggtree/04ca31bc-5cae-4b0b-8eed-9dd450470964%40googlegroups.com?utm_medium=email&amp;utm_source=footer">discussion here</a>.</p>
 </div>
