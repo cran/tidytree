@@ -29,6 +29,9 @@ as_data_frame.phylo <- function(x, ...) {
     idx <- is.na(res$parent)
     res$parent[idx] <- res$node[idx]
 
+    if (!is.null(phylo$edge.length) && !is.null(phylo$root.edge))
+        res$branch.length[res$parent == res$node] = phylo$root.edge
+
     res <- res[order(res$node),]
     aa <- names(attributes(phylo))
     group <- aa[ ! aa %in% c("names", "class", "order", "reroot", "node_map")]

@@ -12,7 +12,7 @@
 
 <meta name="author" content="Guangchuang Yu School of Public Health, The University of Hong Kong" />
 
-<meta name="date" content="2018-04-19" />
+<meta name="date" content="2018-06-13" />
 
 <title>tidytree: A Tidy Tool for Phylogenetic Tree Data Manipulation</title>
 
@@ -72,7 +72,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h1 class="title toc-ignore project-name">tidytree: A Tidy Tool for Phylogenetic Tree Data Manipulation</h1>
 <h4 class="author project-author">Guangchuang Yu<br />
 School of Public Health, The University of Hong Kong</h4>
-<h4 class="date project-date">2018-04-19</h4>
+<h4 class="date project-date">2018-06-13</h4>
 </section>
 
 
@@ -91,7 +91,6 @@ School of Public Health, The University of Hong Kong</h4>
 </div>
 
 <section class="main-content">
-<pre><code>## Warning: package 'ape' was built under R version 3.4.4</code></pre>
 <p>Manipulating tree object is frustrated with the fragmented functions available for working with <code>phylo</code> object, not to mention linking external data to the phylogeny structure. Using <a href="https://www.jstatsoft.org/article/view/v059i10">tidy data principles</a> can make phylogenetic tree manipulation tasks easier and consistent with tools already in wide use, including <a href="https://cran.r-project.org/package=dplyr">dplyr</a>, <a href="https://cran.r-project.org/package=tidyr">tidyr</a>, <a href="https://cran.r-project.org/package=ggplot2">ggplot2</a> and <a href="https://bioconductor.org/packages/ggtree/">ggtree</a>.</p>
 <div id="convert-tree-object-to-tidy-data-frame-and-vice-versa" class="section level1">
 <h1>Convert tree object to tidy data frame and vice versa</h1>
@@ -123,7 +122,6 @@ x</code></pre></div>
 ## 7      6     7       0.435   &lt;NA&gt;</code></pre>
 <p>The <code>tbl_tree</code> object can be converted back to a <code>phylo</code> object.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.phylo</span>(x)</code></pre></div>
-<pre><code>## Warning: package 'bindrcpp' was built under R version 3.4.4</code></pre>
 <pre><code>## 
 ## Phylogenetic tree with 4 tips and 3 internal nodes.
 ## 
@@ -224,16 +222,16 @@ tree &lt;-<span class="st"> </span><span class="kw">read.tree</span>(<span class
 <pre><code>## # A tibble: 25 x 5
 ##    parent  node branch.length label group
 ##     &lt;int&gt; &lt;int&gt;         &lt;dbl&gt; &lt;chr&gt; &lt;fct&gt;
-##  1     20     1            4. A     1    
-##  2     20     2            4. B     1    
-##  3     19     3            5. C     1    
-##  4     18     4            6. D     1    
-##  5     17     5           21. E     1    
-##  6     22     6            4. F     2    
-##  7     22     7           12. G     2    
-##  8     21     8            8. H     2    
-##  9     24     9            5. I     0    
-## 10     24    10            2. J     0    
+##  1     20     1             4 A     1    
+##  2     20     2             4 B     1    
+##  3     19     3             5 C     1    
+##  4     18     4             6 D     1    
+##  5     17     5            21 E     1    
+##  6     22     6             4 F     2    
+##  7     22     7            12 G     2    
+##  8     21     8             8 H     2    
+##  9     24     9             5 I     0    
+## 10     24    10             2 J     0    
 ## # ... with 15 more rows</code></pre>
 </div>
 <div id="groupotu" class="section level2">
@@ -261,16 +259,16 @@ tree &lt;-<span class="st"> </span><span class="kw">read.tree</span>(<span class
 <pre><code>## # A tibble: 25 x 5
 ##    parent  node branch.length label group
 ##     &lt;int&gt; &lt;int&gt;         &lt;dbl&gt; &lt;chr&gt; &lt;fct&gt;
-##  1     20     1            4. A     c1   
-##  2     20     2            4. B     c1   
-##  3     19     3            5. C     c1   
-##  4     18     4            6. D     c1   
-##  5     17     5           21. E     c1   
-##  6     22     6            4. F     c2   
-##  7     22     7           12. G     c2   
-##  8     21     8            8. H     c2   
-##  9     24     9            5. I     c3   
-## 10     24    10            2. J     c3   
+##  1     20     1             4 A     c1   
+##  2     20     2             4 B     c1   
+##  3     19     3             5 C     c1   
+##  4     18     4             6 D     c1   
+##  5     17     5            21 E     c1   
+##  6     22     6             4 F     c2   
+##  7     22     7            12 G     c2   
+##  8     21     8             8 H     c2   
+##  9     24     9             5 I     c3   
+## 10     24    10             2 J     c3   
 ## # ... with 15 more rows</code></pre>
 <p>If there are conflicts when tracing back to mrca, user can set <code>overlap</code> parameter to “origin” (the first one counts), “overwrite” (default, the last one counts) or “abandon” (un-selected for grouping), see also <a href="https://groups.google.com/d/msgid/bioc-ggtree/04ca31bc-5cae-4b0b-8eed-9dd450470964%40googlegroups.com?utm_medium=email&amp;utm_source=footer">discussion here</a>.</p>
 </div>
