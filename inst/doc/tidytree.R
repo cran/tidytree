@@ -11,7 +11,7 @@ library(ape)
 set.seed(2017)
 tree <- rtree(4)
 tree
-x <- as_data_frame(tree)
+x <- as_tibble(tree)
 x
 
 ## ------------------------------------------------------------------------
@@ -27,7 +27,7 @@ y <- full_join(x, d, by = 'label')
 as.treedata(y)
 
 ## ------------------------------------------------------------------------
-y %>% as.treedata %>% as_data_frame
+y %>% as.treedata %>% as_tibble
 
 ## ------------------------------------------------------------------------
 child(y, 5)
@@ -41,7 +41,7 @@ MRCA(y, 2, 3)
 nwk <- '(((((((A:4,B:4):6,C:5):8,D:6):3,E:21):10,((F:4,G:12):14,H:8):13):13,((I:5,J:2):30,(K:11,L:11):2):17):4,M:56);'
 tree <- read.tree(text=nwk)
 
-groupClade(as_data_frame(tree), c(17, 21))
+groupClade(as_tibble(tree), c(17, 21))
 
 ## ------------------------------------------------------------------------
 ## the input nodes can be node ID or label
@@ -53,5 +53,5 @@ cls <- list(c1=c("A", "B", "C", "D", "E"),
             c3=c("L", "K", "I", "J"),
             c4="M")
 
-as_data_frame(tree) %>% groupOTU(cls)
+as_tibble(tree) %>% groupOTU(cls)
 
