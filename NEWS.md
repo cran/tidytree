@@ -1,6 +1,11 @@
+# tidytree 0.3.1
+
++ `groupOTU`: set group from 0 to NA if only root node is in group of 0 (2019-11-25, Mon)
+
 # tidytree 0.3.0
 
-+ bug fixed of `nodelab` (2019-11-21, Thu)
++ `offspring` supports a vector of node ids (2019-11-21, Thu)
++ bug fixed of `nodelab` 
 + `filter` and `select` methods for `ggtree` object (2019-10-31, Thu)
 
 # tidytree 0.2.9
