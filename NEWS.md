@@ -1,9 +1,16 @@
+# tidytree 0.3.4
+
++ implement `merge` method for `tbl_tree` object (2020-07-03, Fri)
+  - <https://github.com/YuLab-SMU/treeio/issues/36>
++ remove mutate_, filter_ and group_by_ according to the change of dplyr (v=1.0.0) (2020-04-09, Thu)
+
+# tidytree 0.3.3
+
++ remove `data_frame` according to the change of tibble (v=3.0.0)
+
 # tidytree 0.3.2
 
 + use `tibble` instead of `data_frame` as it was deprecated in tibble (v=3.0.0) (2020-04-02, Thu)
-
-# tidytree 0.3.2
-
 + compatible with dplyr v=1.0.0 (2020-03-12, Thu)
   - <https://github.com/YuLab-SMU/tidytree/pull/12>
   - <https://github.com/YuLab-SMU/tidytree/issues/13>
@@ -50,14 +57,14 @@
 
 # tidytree 0.2.2
 
-+ mv vignette to [treedata-book](https://yulab-smu.github.io/treedata-book/) (2019-01-10, Thu)
++ mv vignette to [treedata-book](https://yulab-smu.top/treedata-book/) (2019-01-10, Thu)
 
 # tidytree 0.2.1
 
 + `mutate.tbl_tree` method (2018-12-19, Wed)
-  - <https://github.com/GuangchuangYu/tidytree/issues/7>
+  - <https://github.com/YuLab-SMU/tidytree/issues/7>
 + bug fixed in `child` 
-  - <https://github.com/GuangchuangYu/tidytree/pull/8>
+  - <https://github.com/YuLab-SMU/tidytree/pull/8>
 
 # tidytree 0.2.0
 
