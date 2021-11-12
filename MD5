@@ -1,7 +1,7 @@
-e8865cd72577aef1e9765e9fb6eed1c7 *DESCRIPTION
-ecd4a8ea33e3851fa08a36ec8db62cf7 *NAMESPACE
+8945fe8de8377ddd07b8a928f865e7cc *DESCRIPTION
+e58dfcb4a19eb05662fca43e681c04f8 *NAMESPACE
 7763b89dcb175d017696643a9a988788 *NEWS
-7cfa3ee2be78432c96f91370ca1f9a4c *NEWS.md
+29aa8fff15ba2bcc41ec245027bb9bd5 *NEWS.md
 ad48f8176fbb4ad5b779293e38d91443 *R/AllClasses.R
 6a754e98bae79dd5ee619ff4bde9dc31 *R/AllGenerics.R
 29505dd73204a4e5393c4fdc8c82825f *R/ancestor.R
@@ -12,7 +12,7 @@ ed889ea7012c65ff1f06d44d725353ec *R/filter.R
 f0109332bb5d1c65c1e52e35c4ada447 *R/get-fields.R
 62fe16547eb9126a3c3cdbf950db4d31 *R/groupClade.R
 cfee65620a5b6d4b43f7c157badbbc0e *R/groupOTU.R
-3bbb9288717e21dbbf7f3ffa2a4f82d4 *R/left-join.R
+b2fb3aa5d16c79ee422b3b90e713b664 *R/left-join.R
 beb313e396d2a5742e1338bf3cf7cbbc *R/method-merge.R
 291cbc0e650893b33fef1815540a95f5 *R/methods-tidyr.R
 12b2bb28b94e4541ee4fcbc5e5332b73 *R/mutate.R
@@ -22,13 +22,13 @@ cba9917bf31ee1167b8dec712efdb8e2 *R/pull.R
 f78f17b19a4e78f86244936e6ed4a67a *R/reexports.R
 113764f2aed1093b266c1a2e4d894817 *R/rename.R
 b6c885f2dd700a7b9416472d4333db69 *R/select.R
-122105f4f6e252164bc733ae2edf747b *R/show.R
+bced8fcd971bd484304da7ff6e2e096d *R/show.R
 86d6757bc29bf7dfe0f32984fbc5d5e0 *R/sibling.R
-39d6abad1c3752061220c5224fd8d811 *R/tidy_utilities.R
+e7851abf4a81c8b2db4f750145aead41 *R/tidy_utilities.R
 6bf3bc32cfe8626840919852f70e59ba *build/vignette.rds
 b51c42c5cd26de1d0bc4f1f3b72a805d *inst/doc/tidytree.R
 990fc4c9d91857e2ad18f91421b7aaf8 *inst/doc/tidytree.Rmd
-bd2fbc1bf7548c132d8ab000652ce7ba *inst/doc/tidytree.html
+47b26ecebaab59e5614ef1ed6a21f853 *inst/doc/tidytree.html
 143d495222dbdca4e0e3c7eb982ea649 *man/MRCA.Rd
 01c205e55da51a989087bb783097eabe *man/ancestor.Rd
 b0c70447f8c29b4a6728165f3aa38396 *man/as.treedata.Rd
@@ -50,6 +50,6 @@ f56144da1205c6a31053a5e543759e15 *man/treedata-class.Rd
 a241aa8705e5d2a7ae4fc6557e288488 *man/treedata.Rd
 938037ff3f79faa4e22a8f6a8b40d7af *tests/testthat.R
 47311e349197e809de04403e71ee7fa5 *tests/testthat/test-access-related-nodes.R
-c20bba6fc23897c5bfc18a5688a0f5c4 *tests/testthat/test-dplyr-methods.R
+ddead6ce678208d25d4fbac870a05637 *tests/testthat/test-dplyr-methods.R
 d9ce4a93aa42dc2a68ea6e18d194d1d0 *tests/testthat/test-grouping.R
 990fc4c9d91857e2ad18f91421b7aaf8 *vignettes/tidytree.Rmd
