@@ -1,7 +1,7 @@
-5fcdc0c2a7f27c8345bfda08ac983eaa *DESCRIPTION
+1bcfa2ce2527bc093073bf634e113fb2 *DESCRIPTION
 f6395413f358de4fd00771941baba855 *NAMESPACE
 7763b89dcb175d017696643a9a988788 *NEWS
-d96f149cded6f06d4b0fe012e46b5844 *NEWS.md
+5825421c614c3ee2303a475fddd67625 *NEWS.md
 ad48f8176fbb4ad5b779293e38d91443 *R/AllClasses.R
 6a754e98bae79dd5ee619ff4bde9dc31 *R/AllGenerics.R
 29505dd73204a4e5393c4fdc8c82825f *R/ancestor.R
@@ -25,11 +25,12 @@ b6c885f2dd700a7b9416472d4333db69 *R/select.R
 8e29255b2de5794766fb7dcb7ecec027 *R/show.R
 86d6757bc29bf7dfe0f32984fbc5d5e0 *R/sibling.R
 e7851abf4a81c8b2db4f750145aead41 *R/tidy_utilities.R
-0b920cfceb66c24b4a48fb36a9af7596 *R/zzz.R
-7ad205a0ab35a0a6100cf969cc2fd4f0 *build/vignette.rds
+f236e5a53a1b2bd726ad0f67f7a80830 *R/zzz.R
+18307159b411d14fd6dae089f6ce64f0 *build/vignette.rds
+1409cb3dc69776f3ff438d90821e74bc *inst/CITATION
 b51c42c5cd26de1d0bc4f1f3b72a805d *inst/doc/tidytree.R
 990fc4c9d91857e2ad18f91421b7aaf8 *inst/doc/tidytree.Rmd
-7ee5b0e6281f5d27d25523d18d728c33 *inst/doc/tidytree.html
+2518f451a22a545e81a13ab630bd753c *inst/doc/tidytree.html
 143d495222dbdca4e0e3c7eb982ea649 *man/MRCA.Rd
 01c205e55da51a989087bb783097eabe *man/ancestor.Rd
 b0c70447f8c29b4a6728165f3aa38396 *man/as.treedata.Rd
@@ -43,7 +44,7 @@ cf97318a6170a041c23666676fee22dc *man/nodeid.Rd
 c11872f5e83134bf856715a59f383fff *man/nodelab.Rd
 847c2209cef285f5965e2b27102c1271 *man/offspring.Rd
 9cf912744fabd8eb2063e94177126d1e *man/parent.Rd
-0c0514e77d78ff8185cb797073d8b165 *man/reexports.Rd
+4c2f322393b24a006bb296d0fcfc79ae *man/reexports.Rd
 4a6d32e667da91ade821de7460de15d8 *man/rootnode.Rd
 137679c5406861c101366ec2c3d68145 *man/show-methods.Rd
 e1df806a3bf34f9a51766d20fba82c97 *man/sibling.Rd
