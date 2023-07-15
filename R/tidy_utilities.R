@@ -59,6 +59,14 @@ drop_class <- function(x, name) {
     x
 }
 
+add_class <- function(x, name){
+    xx <- setdiff(name, class(x))
+    if (length(xx)>0){
+        class(x) <- base::union(xx, class(x))
+    }
+    return (x)
+}
+
 .internal_nest <- function(x, keepnm, ..., .names_sep = NULL){
     nest <- utils::getFromNamespace("nest", "tidyr")
     if (missing(...)){
@@ -80,3 +88,5 @@ drop_class <- function(x, name) {
 }
 
 tbl_df_returned_message <- "# A tbl_df is returned for independent data analysis."
+
+if(getRversion() >= "2.15.1")  utils::globalVariables(c("."))
