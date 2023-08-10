@@ -1,3 +1,8 @@
+# tidytree 0.4.5
+
++ mv tree operation functions (e.g., `parent()`, `child()`, `tree_subset()`, etc.) from the 'treeio' package (2023-08-03, Thu, #44)
++ update `valid.edge()` to avoid warning (2023-7-18, Tue)
+
 # tidytree 0.4.4
 
 + update old-style 'CITATION' from `citEntry()` to `bibentry()` (2023-07-14, Fri, #38)
