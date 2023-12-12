@@ -1,9 +1,12 @@
-##' @importFrom methods setOldClass
-setOldClass("phylo")
-## setOldClass("multiPhylo")
-setOldClass("DNAbin")
-setOldClass("AAbin")
 
+##' @importFrom methods setOldClass
+##' @importFrom methods isClass
+if (!isClass("phylo")) setOldClass("phylo")
+## setOldClass("multiPhylo")
+if (!isClass("DNAbin")) setOldClass("DNAbin")
+if (!isClass("AAbin")) setOldClass("AAbin")
+
+#' @importFrom methods setClassUnion
 setClassUnion("DNAbin_Or_AAbin", c("DNAbin", "AAbin", "NULL"))
 
 ##' Class "treedata"
