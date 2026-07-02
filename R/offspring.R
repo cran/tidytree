@@ -144,6 +144,55 @@ child.treedata <- function(.data, .node, type = 'children', ...) {
     return(unname(res))
 }
 
+.node2num.phylo <- function(data, node) {
+    if (!is_numeric(node)){
+        all.labs <- c(data$tip.label, data$node.label)
+        names(all.labs) <- seq_len(length(all.labs))
+        node <- names(all.labs[all.labs %in% node])
+    }
+    as.numeric(node)
+}
+
+.offspring.phylo_item <- function(data, node, type, kids, ntip) {
+    node <- .node2num.phylo(data, node)
+    if (length(node) == 0 || is.na(node)) {
+        return(integer(0))
+    }
+
+    res <- kids[[as.character(node)]]
+    if (length(res) == 0) {
+        return(integer(0))
+    }
+
+    if (type != "children") {
+        n <- nrow(data$edge)
+        id <- integer(n)
+        n_id <- length(res)
+        id[seq_len(n_id)] <- res
+
+        i <- 1L
+        while (i <= n_id) {
+            children <- kids[[as.character(id[i])]]
+            n_children <- length(children)
+            if (n_children > 0) {
+                idx <- n_id + seq_len(n_children)
+                id[idx] <- children
+                n_id <- n_id + n_children
+            }
+            i <- i + 1L
+        }
+        res <- id[seq_len(n_id)]
+
+        if (type %in% c("tips", "external")) {
+            res <- res[res <= ntip]
+        } else if (type == "internal") {
+            res <- res[res > ntip]
+        }
+    }
+
+    unname(res)
+}
+
 #' @method offspring phylo
 #' @export
 offspring.phylo <- function(.data, .node, tiponly = FALSE, self_include = FALSE, type = 'all', ...){
@@ -154,7 +203,11 @@ offspring.phylo <- function(.data, .node, tiponly = FALSE, self_include = FALSE,
         type = 'tips'
     }
 
-    res <- lapply(.node, .internal.child, data = .data, type = type)
+    edge <- .data$edge
+    kids <- split(edge[, 2], edge[, 1])
+    ntip <- ape::Ntip(.data)
+    res <- lapply(.node, .offspring.phylo_item,
+                  data = .data, type = type, kids = kids, ntip = ntip)
     if (length(res) <= 1){
         res <- unlist(res)
         if (self_include){

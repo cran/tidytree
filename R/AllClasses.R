@@ -14,8 +14,7 @@ setClassUnion("DNAbin_Or_AAbin", c("DNAbin", "AAbin", "NULL"))
 #'
 #'
 #' @name treedata-class
-#' @aliases treedata-class
-#'   show,treedata-method
+#' @aliases treedata-class show,treedata-method
 #' @docType class
 #' @slot file tree file
 #' @slot treetext newick tree string

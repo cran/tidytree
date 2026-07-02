@@ -34,16 +34,16 @@ These objects are imported from other packages. Follow the links
 below to see their documentation.
 
 \describe{
-  \item{ape}{\code{\link[ape]{as.phylo}}, \code{\link[ape]{as.phylo}}, \code{\link[ape:root]{is.rooted}}, \code{\link[ape:summary.phylo]{Nnode}}, \code{\link[ape:summary.phylo]{Ntip}}, \code{\link[ape]{read.tree}}, \code{\link[ape]{root}}, \code{\link[ape]{rtree}}}
+  \item{ape}{\code{\link[ape:as.phylo]{as.phylo()}}, \code{\link[ape:as.phylo]{as.phylo()}}, \code{\link[ape:is.rooted]{is.rooted()}}, \code{\link[ape:Nnode]{Nnode()}}, \code{\link[ape:Ntip]{Ntip()}}, \code{\link[ape:read.tree]{read.tree()}}, \code{\link[ape:root]{root()}}, \code{\link[ape:rtree]{rtree()}}}
 
-  \item{dplyr}{\code{\link[dplyr]{arrange}}, \code{\link[dplyr]{filter}}, \code{\link[dplyr:mutate-joins]{full_join}}, \code{\link[dplyr:mutate-joins]{left_join}}, \code{\link[dplyr]{mutate}}, \code{\link[dplyr]{pull}}, \code{\link[dplyr]{rename}}, \code{\link[dplyr]{rename}}, \code{\link[dplyr]{select}}, \code{\link[dplyr]{summarise}}, \code{\link[dplyr:summarise]{summarize}}, \code{\link[dplyr]{transmute}}}
+  \item{dplyr}{\code{\link[dplyr:arrange]{arrange()}}, \code{\link[dplyr:filter]{filter()}}, \code{\link[dplyr:full_join]{full_join()}}, \code{\link[dplyr:left_join]{left_join()}}, \code{\link[dplyr:mutate]{mutate()}}, \code{\link[dplyr:pull]{pull()}}, \code{\link[dplyr:rename]{rename()}}, \code{\link[dplyr:rename]{rename()}}, \code{\link[dplyr:select]{select()}}, \code{\link[dplyr:summarise]{summarise()}}, \code{\link[dplyr:summarize]{summarize()}}, \code{\link[dplyr:transmute]{transmute()}}}
 
-  \item{magrittr}{\code{\link[magrittr:compound]{\%<>\%}}, \code{\link[magrittr:pipe]{\%>\%}}}
+  \item{magrittr}{\code{\link[magrittr:\%<>\%]{\%<>\%}}, \code{\link[magrittr:\%>\%]{\%>\%}}}
 
-  \item{rlang}{\code{\link[rlang:dot-data]{.data}}}
+  \item{rlang}{\code{\link[rlang:.data]{.data}}}
 
-  \item{tibble}{\code{\link[tibble]{as_tibble}}, \code{\link[tibble]{tibble}}}
+  \item{tibble}{\code{\link[tibble:as_tibble]{as_tibble()}}, \code{\link[tibble:tibble]{tibble()}}}
 
-  \item{tidyr}{\code{\link[tidyr]{unnest}}}
+  \item{tidyr}{\code{\link[tidyr:unnest]{unnest()}}}
 }}
 

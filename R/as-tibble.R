@@ -105,7 +105,9 @@ valid.tbl_tree <- function(object, cols = c("parent", "node", "label")) {
     cc <- cols[!cols %in% colnames(object)]
     if (length(cc) > 0) {
         msg <- paste0("invalid tbl_tree object.\n  missing column:\n    ", paste(cc, collapse=","), ".")
+        stop(msg, call. = FALSE)
     }
+    invisible(TRUE)
 }
 
 #' @importFrom pillar style_subtle

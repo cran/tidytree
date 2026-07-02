@@ -1,3 +1,16 @@
+# tidytree 0.4.8
+
++ improve `tree_subset()` error handling for unmatched nodes and pass
+  `root_edge` consistently in the `treedata` method (2026-07-02, Thu)
++ make malformed `tbl_tree` objects fail with a clear validation error when
+  converted by `as.phylo()` (2026-07-02, Thu)
++ optimize `offspring()` for 'phylo' objects and `as.ultrametric()` for large
+  trees by avoiding repeated edge scans and vector growth in traversal loops
+  (2026-07-02, Thu)
++ update package citation and documentation links (2026-07-02, Thu)
++ remove duplicated rows in `y` before `left_join()` and `full_join()` to avoid
+  duplicated annotation records after joining tables (2026-07-01, Wed, #52)
+
 # tidytree 0.4.7
 
 + `rootnode()` method for 'treedata' object (2026-01-07, Thu)

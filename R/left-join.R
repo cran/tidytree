@@ -19,6 +19,8 @@ left_join.treedata <- function(x, y, by = NULL, copy = FALSE, suffix=c("", ".y")
         cli::cli_warn(msg)
         suffix <- rev(suffix[seq_len(2)])
     }
+    y <- .check_duplicated_rows(y)
+
     da <- dplyr::left_join(dat, y, by = by, copy = copy, suffix = suffix, ...)
 
     if (any(duplicated(da$node))){
@@ -67,4 +69,18 @@ left_join.tbl_tree <- function(x, y, by = NULL, copy = FALSE,
         td@extraInfo <- da %>% select(c("node", extra.nm))
     }
     return(td)
+}
+
+.check_duplicated_rows <- function(
+    x, 
+    warning_message='Duplicate rows were deduplicated before joining the tables'
+){
+    flag <- duplicated(x)
+    if (any(flag)){
+        if (!is.null(warning_message)){
+            cli::cli_warn(warning_message)
+        }
+        x <- x[!flag,]
+    }
+    return(x)
 }

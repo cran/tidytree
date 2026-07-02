@@ -77,11 +77,14 @@ tree_subset_internal <- function(tree, node, levels_back = 5, root_edge = TRUE) 
     tree_df <- tidytree::as_tibble(tree)
 
     selected_node <- node
+    selected <- dplyr::filter(tree_df, .data$node == selected_node | .data$label == selected_node)
 
-    is_tip <- tree_df %>%
-      dplyr::mutate(isTip = !.data$node %in% .data$parent) %>%
-      dplyr::filter(.data$node == selected_node | .data$label == selected_node) %>%
-      dplyr::pull(.data$isTip)
+    if (nrow(selected) == 0) {
+      stop("The selected node (", selected_node, ") was not found in the tree",
+           call. = FALSE)
+    }
+
+    is_tip <- !selected$node %in% tree_df$parent
 
     if (is_tip & levels_back == 0){
       stop("The selected node (", selected_node, ") is a tip. 'levels_back' must be > 0",
@@ -89,9 +92,7 @@ tree_subset_internal <- function(tree, node, levels_back = 5, root_edge = TRUE) 
     }
 
     if (is_tip) {
-      group_labels <- tree_df %>%
-        dplyr::filter(.data$node == selected_node | .data$label == selected_node) %>%
-        dplyr::pull(.data$label)
+      group_labels <- selected$label
     } else {
       group_labels <- tree_df %>%
         tidytree::offspring(selected_node) %>%
@@ -156,7 +157,9 @@ tree_subset_internal <- function(tree, node, levels_back = 5, root_edge = TRUE) 
 tree_subset.treedata <- function(tree, node, levels_back = 5, group_node = TRUE,
                                  group_name = "group", root_edge = TRUE){
 
-    x <- tree_subset_internal(tree = tree@phylo, node = node, levels_back = levels_back)
+    x <- tree_subset_internal(tree = tree@phylo, node = node,
+                              levels_back = levels_back,
+                              root_edge = root_edge)
 
     subtree <- drop.tip(tree, tree@phylo$tip.label[-x$subset_nodes], rooted = TRUE)
 

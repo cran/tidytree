@@ -23,6 +23,8 @@ full_join.treedata <- function(x, y, by = NULL,
         cli::cli_warn(msg)
         suffix <- rev(suffix[seq_len(2)])
     }
+
+    y <- .check_duplicated_rows(y)
     
     da <- dplyr::full_join(dat, y, by = by, copy = copy, suffix = suffix, ...)
 
